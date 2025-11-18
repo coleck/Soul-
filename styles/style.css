@@ -6,25 +6,43 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: "NATS", sans-serif;
     overflow-x: hidden;
+    min-height: 100vh;
+    height: 100%;
+}
+
+/* Фолбэк шрифты если NATS не загрузился */
+@supports not (font-variation-settings: normal) {
+    body {
+        font-family: Arial, sans-serif;
+    }
 }
 
 /* СТИЛИ ДЛЯ ПЕРВОЙ СТРАНИЦЫ */
 .main-content {
-    background: url(../images/bg_main.png) center/cover;
+    background: url(../images/bg_main.png) center/cover no-repeat;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
 }
 
 .main-content-container {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding-top: 100px;
+    padding: 100px 20px 40px;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .main-content-about {
@@ -32,46 +50,50 @@ body {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    width: fit-content;
 }
 
 .title-base {
-    font-size: 60px;
-    line-height: 85px;
+    font-size: clamp(36px, 8vw, 60px);
+    line-height: 1.2;
     text-align: left;
     color: #4251D2;
+    font-weight: normal;
 }
 
 .main-content-title {
-    font-size: 48px;
-    line-height: 48px;
+    font-size: clamp(28px, 6vw, 48px);
+    line-height: 1.2;
     color: #4251D2;
     margin-bottom: 20px;
+    font-weight: normal;
 }
 
 .main-content-description {
-    font-size: 34px;
-    line-height: 34px;
+    font-size: clamp(18px, 4vw, 34px);
+    line-height: 1.3;
     text-align: left;
     color: #4251D2;
     margin-bottom: 40px;
     padding-left: 15px;
+    font-weight: normal;
 }
 
 .main-content-button {
     background-color: #3F52D2;
     display: inline-block;
     color: white;
-    padding: 8px 20px;
-    line-height: 40px;
-    font-size: 40px;
-    font-family: "NATS", sans-serif;
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 30px);
+    line-height: 1.2;
+    font-size: clamp(24px, 5vw, 40px);
+    font-family: "NATS", Arial, sans-serif;
     text-decoration: none;
     cursor: pointer;
     border: none;
     border-radius: 20px;
     width: 100%;
+    max-width: 400px;
     transition: all 0.3s ease;
+    font-weight: normal;
 }
 
 .main-content-button:hover {
@@ -82,6 +104,7 @@ body {
 .btn {
     display: inline-block;
     width: 100%;
+    max-width: 400px;
 }
 
 .transition-line {
@@ -121,14 +144,18 @@ body {
 .main-content_2_stage {
     background: url(../images/second_stage.png) center/cover no-repeat;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
 }
 
 /* СЛАЙДЕР */
 .slider-wrapper {
     position: relative;
     width: 100%;
-    height: calc(100% - 200px);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
 }
 
 .main-content-stage {
@@ -146,6 +173,7 @@ body {
     transform: translateX(100%);
     transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1);
     pointer-events: none;
+    padding: 20px;
 }
 
 .main-content-stage.active {
@@ -159,11 +187,12 @@ body {
 }
 
 .main-content-title_stage {
-    font-size: 48px;
-    line-height: 48px;
+    font-size: clamp(24px, 6vw, 48px);
+    line-height: 1.2;
     color: #4251D2;
     margin-bottom: 20px;
     max-width: 210px;
+    font-weight: normal;
 }
 
 .image-container {
@@ -174,6 +203,7 @@ body {
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
+    width: 100%;
 }
 
 .double-row {
@@ -181,12 +211,14 @@ body {
     gap: 20px;
     width: 100%;
     justify-content: center;
+    max-width: 1200px;
 }
 
 .single-row {
     display: flex;
     justify-content: center;
     width: 100%;
+    max-width: 1200px;
 }
 
 .image {
@@ -194,16 +226,20 @@ body {
     border-radius: 12px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
 }
 
 .double-row .image {
-    width: calc(30% - 10px);
+    width: calc(50% - 10px);
     aspect-ratio: 4 / 3;
+    max-width: 400px;
 }
 
 .single-row .image {
-    width: 30%;
+    width: 50%;
     aspect-ratio: 4 / 3;
+    max-width: 400px;
 }
 
 .slaider {
@@ -234,22 +270,24 @@ body {
 }
 
 #archetype-result {
-    font-size: 36px;
+    font-size: clamp(28px, 6vw, 36px);
     color: #4251D2;
     margin: 20px 0;
+    font-weight: normal;
 }
 
 .title-total {
-    font-size: 40px;
-    line-height: 40px;
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.2;
     color: #3F52D2;
     margin-bottom: 26px;
     font-style: normal;
+    font-weight: normal;
 }
 
 .stage-progress {
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
@@ -275,35 +313,41 @@ body {
 }
 
 .main-content-total {
-    margin-left: 108px;
-    width: fit-content;
+    margin-left: 0;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
 }
 
 .main-content-title-total {
-    font-size: 60px;
-    line-height: 40px;
+    font-size: clamp(36px, 8vw, 60px);
+    line-height: 1.2;
     text-align: left;
     color: #4251D2;
     margin-bottom: 35px;
-    width: 100%
+    width: 100%;
+    font-weight: normal;
 }
 
 .main-content-total-descr {
-    max-width: 425px;
+    max-width: 100%;
     padding: 26px;
-    font-size: 20px;
-    line-height: 20px;
+    font-size: clamp(16px, 3vw, 20px);
+    line-height: 1.4;
     text-align: left;
     color: #4250d2e3;
     background-color: white;
     border-radius: 40px;
-    margin-left: 165px;
+    margin-left: 0;
     margin-bottom: 35px;
+    font-weight: normal;
 }
 
 .main-content-total-descr li {
     list-style-type: none;
-    margin-left: 30px;
+    margin-left: 20px;
+    margin-bottom: 8px;
+    font-weight: normal;
 }
 
 .total-description_fst {
@@ -314,9 +358,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 549px;
+    width: 100%;
+    max-width: 549px;
     margin-top: 40px;
-    margin-left: 50px;
+    margin-left: 0;
+    padding: 0 20px;
 }
 
 .group_score {
@@ -331,6 +377,7 @@ body {
     transition: all 0.3s ease;
     border: none;
     width: 100%;
+    text-decoration: none;
 }
 
 .group_score:hover {
@@ -340,18 +387,20 @@ body {
 }
 
 .group_score h3 {
-    font-size: 40px;
-    line-height: 30px;
+    font-size: clamp(24px, 5vw, 40px);
+    line-height: 1.2;
     text-align: left;
     margin: 0;
+    font-weight: normal;
 }
 
 .img {
-    width: 100px;
-    height: 100px;
+    width: clamp(60px, 10vw, 100px);
+    height: clamp(60px, 10vw, 100px);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .img img {
@@ -361,12 +410,13 @@ body {
 }
 
 .title-score {
-    font-size: 40px;
-    line-height: 40px;
+    font-size: clamp(28px, 6vw, 40px);
+    line-height: 1.2;
     color: #3F52D2;
     margin-bottom: 26px;
     font-style: normal;
     max-width: 321px;
+    font-weight: normal;
 }
 
 /* Стили для контейнера с кнопкой "Back" */
@@ -375,11 +425,13 @@ body {
     justify-content: center;
     margin-top: 40px;
     width: 100%;
+    padding: 0 20px;
 }
 
 .back-container .main-content-button {
     width: auto;
     padding: 8px 40px;
+    max-width: 300px;
 }
 
 /* ==================== */
@@ -388,16 +440,8 @@ body {
 
 @media (max-width: 768px) {
     .main-content-container {
-        padding-top: 60px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .title-base {
-        font-size: 36px;
-        line-height: 48px;
-        text-align: center;
-        width: 100%;
+        padding: 60px 15px 30px;
+        justify-content: flex-start;
     }
 
     .main-content-about {
@@ -406,26 +450,19 @@ body {
         width: 100%;
     }
 
-    .main-content-title {
-        font-size: 32px;
-        line-height: 36px;
+    .title-base,
+    .main-content-title,
+    .main-content-title-total {
         text-align: center;
-        margin-bottom: 30px;
     }
 
     .main-content-description {
-        font-size: 20px;
-        line-height: 24px;
         text-align: center;
         padding-left: 0;
-        margin-bottom: 30px;
     }
 
     .main-content-button {
-        font-size: 28px;
-        line-height: 32px;
-        padding: 12px 30px;
-        width: 80%;
+        width: 100%;
         max-width: 300px;
     }
 
@@ -437,15 +474,6 @@ body {
         top: 0;
     }
 
-    .main-content-title_stage {
-        font-size: 28px;
-        line-height: 32px;
-        text-align: center;
-        max-width: none;
-        margin-bottom: 30px;
-        width: 100%;
-    }
-
     .main-content-stage {
         align-items: center;
         text-align: center;
@@ -453,10 +481,16 @@ body {
         padding-top: 80px;
     }
 
+    .main-content-title_stage {
+        text-align: center;
+        max-width: none;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
     .image-container {
         padding: 10px;
         gap: 15px;
-        width: 100%;
     }
 
     .double-row {
@@ -471,16 +505,10 @@ body {
         max-width: 400px;
     }
 
-    .double-row .image {
-        width: 100%;
-        max-width: 400px;
-        aspect-ratio: 4 / 3;
-    }
-
+    .double-row .image,
     .single-row .image {
         width: 100%;
         max-width: 400px;
-        aspect-ratio: 4 / 3;
     }
 
     .stage-progress {
@@ -490,135 +518,46 @@ body {
 
     .main-content-total {
         margin-left: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
     .main-content-title-total {
-        font-size: 36px;
-        line-height: 40px;
         text-align: center;
-        margin-bottom: 25px;
     }
 
     .main-content-total-descr {
-        margin-left: 0;
-        max-width: 90%;
-        padding: 20px;
-        font-size: 16px;
-        line-height: 20px;
-        margin-bottom: 25px;
-    }
-
-    .main-content-total-descr li {
         margin-left: 0;
         text-align: left;
     }
 
     .main-content-score {
-        width: 100%;
         margin-left: 0;
-        margin-top: 20px;
-        gap: 15px;
-        padding: 0 20px;
     }
 
     .group_score {
         padding: 15px 20px;
-        gap: 10px;
-    }
-
-    .group_score h3 {
-        font-size: 28px;
-        line-height: 32px;
-    }
-
-    .img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .title-total,
-    .title-score {
-        font-size: 28px;
-        line-height: 32px;
-        text-align: center;
-        margin-bottom: 20px;
-        max-width: none;
-        width: 100%;
-    }
-
-    .back-container .main-content-button {
-        width: 80%;
-        max-width: 300px;
-        font-size: 28px;
-        padding: 10px 20px;
-    }
-
-    .progress-line {
-        height: 8px;
     }
 
     .slaider {
         bottom: 70px;
     }
 
-    .slaider::before {
-        font-size: 20px;
-        letter-spacing: 6px;
+    .progress-line {
+        height: 8px;
     }
 }
 
 @media (max-width: 480px) {
     .main-content-container {
-        padding-top: 40px;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .title-base {
-        font-size: 28px;
-        line-height: 36px;
-    }
-
-    .main-content-title {
-        font-size: 24px;
-        line-height: 28px;
-    }
-
-    .main-content-description {
-        font-size: 18px;
-        line-height: 22px;
-    }
-
-    .main-content-button {
-        font-size: 24px;
-        line-height: 28px;
-        padding: 10px 25px;
-    }
-
-    .main-content-title_stage {
-        font-size: 24px;
-        line-height: 28px;
-    }
-
-    .main-content-title-total {
-        font-size: 28px;
-        line-height: 32px;
+        padding: 40px 10px 20px;
     }
 
     .main-content-total-descr {
-        font-size: 14px;
-        line-height: 18px;
-        padding: 15px;
+        padding: 20px;
     }
 
-    .group_score h3 {
-        font-size: 24px;
-        line-height: 28px;
+    .group_score {
+        padding: 12px 16px;
     }
 
     .img {
@@ -630,34 +569,12 @@ body {
         padding: 5px;
         gap: 10px;
     }
-
-    .double-row,
-    .single-row {
-        gap: 10px;
-    }
-}
-
-@media (max-width: 320px) {
-    .main-content-container {
-        padding-top: 30px;
-    }
-
-    .title-base {
-        font-size: 24px;
-        line-height: 32px;
-    }
-
-    .main-content-button {
-        font-size: 20px;
-        line-height: 24px;
-    }
 }
 
 /* Адаптация для планшетов */
 @media (min-width: 769px) and (max-width: 1024px) {
     .main-content-container {
         max-width: 90%;
-        padding-top: 80px;
     }
 
     .main-content-total {
@@ -673,14 +590,6 @@ body {
         width: 450px;
         margin-left: 30px;
     }
-
-    .double-row .image {
-        width: calc(35% - 10px);
-    }
-
-    .single-row .image {
-        width: 35%;
-    }
 }
 
 /* Адаптация для больших экранов */
@@ -688,48 +597,38 @@ body {
     .main-content-container {
         max-width: 1400px;
     }
-
-    .title-base {
-        font-size: 72px;
-        line-height: 96px;
-    }
-
-    .main-content-title {
-        font-size: 56px;
-        line-height: 56px;
-    }
-
-    .main-content-description {
-        font-size: 40px;
-        line-height: 40px;
-    }
-
-    .main-content-button {
-        font-size: 48px;
-        line-height: 48px;
-    }
 }
 
 /* Предотвращение горизонтального скролла */
-html, body {
+html,
+body {
     max-width: 100%;
     overflow-x: hidden;
 }
 
-/* Улучшение рендеринга шрифтов на мобильных */
-@media (max-width: 768px) {
-    body {
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-    }
+/* Улучшение рендеринга шрифтов */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Оптимизация тач-событий для мобильных */
 @media (max-width: 768px) {
-    .image, 
-    .group_score, 
+
+    .image,
+    .group_score,
     .main-content-button {
         -webkit-tap-highlight-color: transparent;
         touch-action: manipulation;
+    }
+}
+
+/* Исправление для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+
+    .main-content,
+    .main-content_2_stage {
+        min-height: -webkit-fill-available;
     }
 }
