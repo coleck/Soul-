@@ -15,29 +15,28 @@ body {
 
 body {
     font-family: "NATS", sans-serif;
-    background: #000;
+
 }
 
 /* ОБЩИЕ СТИЛИ ФОНА */
 .main-content,
 .main-content_2_stage {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+
+    width: 100%;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
+    background-attachment: fixed
 }
 
 .main-content {
-    background-image: url(../images/bg_main.png);
+    background-image: url(../images/bg_main.jpg);
 }
 
 .main-content_2_stage {
-    background-image: url(../images/second_stage.png);
+    background-image: url(../images/second_stage.jpg);
 }
 
 /* ОСНОВНОЙ КОНТЕЙНЕР */
@@ -48,9 +47,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 100px 20px 80px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* ПЕРВАЯ СТРАНИЦА */
@@ -59,8 +56,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    flex: 1;
-    justify-content: center;
     width: fit-content;
 }
 
@@ -139,7 +134,7 @@ body {
 .slider-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .main-content-stage {
@@ -147,7 +142,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -157,6 +152,7 @@ body {
     transform: translateX(100%);
     transition: all 0.6s ease;
     pointer-events: none;
+    padding:  5px 20px 80px;
 }
 
 .main-content-stage.active {
@@ -231,13 +227,11 @@ body {
     left: 0;
     width: 100%;
     height: 60px;
-    
     backdrop-filter: blur(10px);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 .progress-container {
@@ -307,9 +301,6 @@ body {
     margin-bottom: 35px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(66, 81, 210, 0.1);
-
-
-
 }
 
 .main-content-total-descr li {
@@ -395,14 +386,16 @@ body {
 
 /* АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ */
 @media (max-width: 768px) {
-
-    
+    .main-content-container {
+        padding: 20px 20px 500px;
+    }
 
     /* СЛАЙДЕР НА МОБИЛЬНЫХ */
     .main-content-stage {
         align-items: center;
         text-align: center;
-        padding: 0 15px;
+        padding: 60px 15px 80px;
+        justify-content: flex-start;
     }
 
     .main-content-title_stage {
@@ -444,7 +437,6 @@ body {
     /* ПРОГРЕСС-БАР НА МОБИЛЬНЫХ */
     .stage-progress {
         height: 70px;
-        
     }
 
     .progress-container {
@@ -459,7 +451,6 @@ body {
     .main-content-total {
         margin-left: 0;
         width: 100%;
-        align-items: center;
         text-align: center;
     }
 
@@ -552,9 +543,4 @@ body {
         width: 50px;
         height: 50px;
     }
-}
-
-/* ПРЕДОТВРАЩЕНИЕ СКРОЛЛА */
-.no-scroll {
-    overflow: hidden;
 }
