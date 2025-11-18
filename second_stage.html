@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Trip - Test</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.cdnfonts.com/css/nats" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <section class="main-content_2_stage">
+            <div class="main-content-container">
+                <div class="slider-wrapper">
+                    <!-- Первый экран -->
+                    <div class="main-content-stage active">
+                        <h2 class="main-content-title_stage">Choose an image that speaks to you</h2>
+                        <div class="image-container">
+                            <div class="double-row">
+                                <img src="images/1.jpg" alt="" class="image" onclick="selectImage(1)">
+                                <img src="images/2.jpg" alt="" class="image" onclick="selectImage(2)">
+                            </div>
+                            <div class="single-row">
+                                <img src="images/5.jpg" alt="" class="image" onclick="selectImage(5)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Второй экран -->
+                    <div class="main-content-stage">
+                        <h2 class="main-content-title_stage">Choose an image that speaks to you</h2>
+                        <div class="image-container">
+                            <div class="double-row">
+                                <img src="images/7.jpg" alt="" class="image" onclick="selectImage(7)">
+                                <img src="images/8.jpg" alt="" class="image" onclick="selectImage(8)">
+                            </div>
+                            <div class="single-row">
+                                <img src="images/9.jpg" alt="" class="image" onclick="selectImage(9)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Третий экран -->
+                    <div class="main-content-stage">
+                        <h2 class="main-content-title_stage">Choose an image that speaks to you</h2>
+                        <div class="image-container">
+                            <div class="double-row">
+                                <img src="images/3.jpg" alt="" class="image" onclick="selectImage(3)">
+                                <img src="images/4.jpg" alt="" class="image" onclick="selectImage(4)">
+                            </div>
+                            <div class="single-row">
+                                <img src="images/6.jpg" alt="" class="image" onclick="selectImage(6)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Четвертый экран - Результат -->
+                    <div class="main-content-stage">
+                        <h2 class="main-content-title_stage">Your Archetype is</h2>
+                        <div class="result-container">
+                            <div id="archetype-result">Calculating...</div>
+                            <p style="color: #4251D2; margin-top: 20px; font-size: 24px;">Redirecting to your results...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-progress">
+                    <div class="progress-line">
+                        <div class="progress-filled" id="progress-filled"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
