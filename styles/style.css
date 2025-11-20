@@ -21,14 +21,11 @@ body {
 /* ОБЩИЕ СТИЛИ ФОНА */
 .main-content,
 .main-content_2_stage {
-
-    width: 100%;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 1;
-    background-attachment: fixed
+
 }
 
 .main-content {
@@ -41,13 +38,11 @@ body {
 
 /* ОСНОВНОЙ КОНТЕЙНЕР */
 .main-content-container {
-    position: relative;
-    z-index: 2;
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 100px 20px 80px;
-    min-height: 100vh;
+    padding: 20px 0px 340px;
+
 }
 
 /* ПЕРВАЯ СТРАНИЦА */
@@ -152,7 +147,7 @@ body {
     transform: translateX(100%);
     transition: all 0.6s ease;
     pointer-events: none;
-    padding:  5px 20px 80px;
+    padding: 5px 20px 80px;
 }
 
 .main-content-stage.active {
@@ -189,35 +184,51 @@ body {
     gap: 30px;
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .single-row {
     display: flex;
     justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .image {
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    /* Фон если картинка не заполняет */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    /* Рамка для четкости */
 }
 
+/* КВАДРАТНЫЕ КАРТИНКИ */
 .double-row .image {
-    width: calc(30% - 15px);
-    aspect-ratio: 4 / 3;
+    width: 300px;
+    /* Фиксированная ширина */
+    height: 300px;
+    /* Фиксированная высота = квадрат */
+    min-width: 300px;
+    /* Минимальная ширина */
 }
 
 .single-row .image {
-    width: 30%;
-    aspect-ratio: 4 / 3;
+    width: 300px;
+    /* Фиксированная ширина */
+    height: 300px;
+    /* Фиксированная высота = квадрат */
+    min-width: 300px;
+    /* Минимальная ширина */
 }
 
 .image:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ФИКСИРОВАННЫЙ ПРОГРЕСС-БАР */
@@ -386,8 +397,17 @@ body {
 
 /* АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ */
 @media (max-width: 768px) {
+
+    .main-content {
+        background-image: url(../images/bg_score.png);
+    }
+
+    .main-content_2_stage {
+        background-image: url(../images/bg_mob.png);
+    }
+
     .main-content-container {
-        padding: 20px 20px 500px;
+        padding: 20px 20px 800px;
     }
 
     /* СЛАЙДЕР НА МОБИЛЬНЫХ */
@@ -396,6 +416,7 @@ body {
         text-align: center;
         padding: 60px 15px 80px;
         justify-content: flex-start;
+
     }
 
     .main-content-title_stage {
@@ -427,6 +448,8 @@ body {
     .single-row .image {
         width: 100%;
         max-width: 400px;
+        height: 400px;
+        min-width: unset;
     }
 
     .image {
@@ -507,7 +530,7 @@ body {
 /* ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНОВ */
 @media (max-width: 480px) {
     .main-content-container {
-        padding: 40px 15px 90px;
+        padding: 40px 15px 700px;
     }
 
     .title-base {
@@ -542,5 +565,13 @@ body {
     .img {
         width: 50px;
         height: 50px;
+    }
+
+    .double-row .image,
+    .single-row .image {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+        /* Чуть меньше на маленьких экранах */
     }
 }
