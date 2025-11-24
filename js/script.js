@@ -14,15 +14,15 @@ let userScores = {
 
 // Баллы для каждой картинки
 const imageScores = {
-  1: { seeker: 2, aesthetic: 1 }, // ИСКАТЕЛЬ - но с ноткой эстетики
-  2: { aesthetic: 3 }, // ЭСТЕТ - чистый эстет
+  1: { seeker: 2, intuitive: 1 }, // ИСКАТЕЛЬ - искатель с интуицией
+  2: { aesthetic: 2, dreamer: 1 }, // ЭСТЕТ - эстет-мечтатель
   3: { detective: 2, analyst: 1 }, // ДЕТЕКТИВ - аналитический детектив
-  4: { aesthetic: 2, intuitive: 1 }, // ЭСТЕТИВ - эстет+интуиция
-  5: { detective: 2, seeker: 1 }, // ДЕТЕКТИВ - детектив+искатель
-  6: { analyst: 2, intuitive: 1 }, // НЕАТЕЛ - аналитик+интуиция
-  7: { intuitive: 2, dreamer: 1 }, // ДИНТУІСС - интуиция+мечтатель
-  8: { aesthetic: 2, dreamer: 1 }, // ЭБТОСТ - эстет+мечтатель
-  9: { aesthetic: 3 }, // АСТЕТ - чистый эстет
+  4: { intuitive: 2, seeker: 1 }, // ЭСТЕТИВ - интуитивный искатель (маскировка!)
+  5: { detective: 2, aesthetic: 1 }, // ДЕТЕКТИВ - детектив с вкусом
+  6: { analyst: 2, detective: 1 }, // НЕАТЕЛ - аналитик-детектив
+  7: { intuitive: 2, analyst: 1 }, // ДИНТУІСС - интуитивный аналитик
+  8: { dreamer: 2, aesthetic: 1 }, // ЭБТОСТ - мечтатель с эстетикой
+  9: { analyst: 2, intuitive: 1 }, // АСТЕТ - аналитик с интуицией (сюрприз!)
 };
 
 function updateProgress(currentStage) {
