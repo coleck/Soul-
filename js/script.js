@@ -14,15 +14,15 @@ let userScores = {
 
 // Баллы для каждой картинки
 const imageScores = {
-  1: { seeker: 2, aesthetic: 1 },
-  2: { aesthetic: 3, dreamer: 1 },
-  5: { analyst: 2, intuitive: 1, dreamer: 1 },
-  7: { seeker: 2, detective: 1, intuitive: 1 },
-  8: { dreamer: 3, aesthetic: 1 },
-  9: { analyst: 2, seeker: 1 },
-  3: { detective: 2, analyst: 2 },
-  4: { dreamer: 2, aesthetic: 2 },
-  6: { aesthetic: 2, intuitive: 2 },
+  1: { seeker: 2, aesthetic: 1 }, // ИСКАТЕЛЬ - но с ноткой эстетики
+  2: { aesthetic: 3 }, // ЭСТЕТ - чистый эстет
+  3: { detective: 2, analyst: 1 }, // ДЕТЕКТИВ - аналитический детектив
+  4: { aesthetic: 2, intuitive: 1 }, // ЭСТЕТИВ - эстет+интуиция
+  5: { detective: 2, seeker: 1 }, // ДЕТЕКТИВ - детектив+искатель
+  6: { analyst: 2, intuitive: 1 }, // НЕАТЕЛ - аналитик+интуиция
+  7: { intuitive: 2, dreamer: 1 }, // ДИНТУІСС - интуиция+мечтатель
+  8: { aesthetic: 2, dreamer: 1 }, // ЭБТОСТ - эстет+мечтатель
+  9: { aesthetic: 3 }, // АСТЕТ - чистый эстет
 };
 
 function updateProgress(currentStage) {
@@ -90,7 +90,8 @@ function showFinalResult() {
   const archetype = determineArchetype();
   const resultElement = document.getElementById("archetype-result");
   if (resultElement) {
-    resultElement.textContent = archetype.charAt(0).toUpperCase() + archetype.slice(1);
+    resultElement.textContent =
+      archetype.charAt(0).toUpperCase() + archetype.slice(1);
     resultElement.style.fontSize = "48px";
     resultElement.style.color = "#4251D2";
     resultElement.style.margin = "30px 0";
@@ -115,21 +116,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // В функции selectImage добавь оптимизацию для тач-устройств
 function selectImage(imageId) {
-    // Добавляем баллы за выбранную картинку
-    const points = imageScores[imageId];
-    for (let archetype in points) {
-        userScores[archetype] += points[archetype];
-    }
+  // Добавляем баллы за выбранную картинку
+  const points = imageScores[imageId];
+  for (let archetype in points) {
+    userScores[archetype] += points[archetype];
+  }
 
-    // Визуальная обратная связь для мобильных
-    event.target.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        event.target.style.transform = 'scale(1)';
-    }, 150);
+  // Визуальная обратная связь для мобильных
+  event.target.style.transform = "scale(0.95)";
+  setTimeout(() => {
+    event.target.style.transform = "scale(1)";
+  }, 150);
 
-    // Переход к следующему слайду
-    const nextSlide = currentStage + 1;
-    if (nextSlide < stages.length) {
-        setTimeout(() => goToSlide(nextSlide), 300);
-    }
+  // Переход к следующему слайду
+  const nextSlide = currentStage + 1;
+  if (nextSlide < stages.length) {
+    setTimeout(() => goToSlide(nextSlide), 300);
+  }
 }

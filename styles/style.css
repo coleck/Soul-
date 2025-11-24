@@ -41,7 +41,7 @@ body {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 20px 0px 340px;
+    padding: 20px 0px 0px;
 
 }
 
@@ -199,7 +199,7 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) 50%;
     background: rgba(255, 255, 255, 0.1);
     /* Фон если картинка не заполняет */
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -208,20 +208,20 @@ body {
 
 /* КВАДРАТНЫЕ КАРТИНКИ */
 .double-row .image {
-    width: 300px;
+    width: 200px;
     /* Фиксированная ширина */
-    height: 300px;
+    height: 200px;
     /* Фиксированная высота = квадрат */
-    min-width: 300px;
+    min-width: 200px;
     /* Минимальная ширина */
 }
 
 .single-row .image {
-    width: 300px;
+    width: 200px;
     /* Фиксированная ширина */
-    height: 300px;
+    height: 200px;
     /* Фиксированная высота = квадрат */
-    min-width: 300px;
+    min-width: 200px;
     /* Минимальная ширина */
 }
 
@@ -305,8 +305,7 @@ body {
     font-size: 20px;
     line-height: 1.4;
     color: #4250d2;
-    backdrop-filter: blur(20px);
-    background-color: #d7ddf1f5;
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 40px;
     margin-left: 165px;
     margin-bottom: 35px;
@@ -436,25 +435,25 @@ body {
         flex-direction: column;
         gap: 20px;
         width: 100%;
-        max-width: 400px;
+        max-width: 150px;
     }
 
     .single-row {
         width: 100%;
-        max-width: 400px;
+        max-width: 150px;
     }
 
     .double-row .image,
     .single-row .image {
         width: 100%;
-        max-width: 400px;
-        height: 400px;
+        max-width: 150px;
+        height: 150px;
         min-width: unset;
     }
 
     .image {
         border-radius: 15px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) 50%;
     }
 
     /* ПРОГРЕСС-БАР НА МОБИЛЬНЫХ */
@@ -570,8 +569,8 @@ body {
     .double-row .image,
     .single-row .image {
         width: 100%;
-        max-width: 350px;
-        height: 350px;
+        max-width: 100px;
+        height: 100px;
         /* Чуть меньше на маленьких экранах */
     }
 }
